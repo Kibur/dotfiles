@@ -36,7 +36,6 @@ fi
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo "Installing Oh My Zsh..."
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    exit
 fi
 
 if [ ! -f ~/.oh-my-zsh/themes/honukai.zsh-theme ]; then
