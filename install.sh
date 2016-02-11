@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# Get current dir (so run this script from anywhere)
-export DOTFILES_DIR
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-dotfiles=(.vimrc .zshrc)
-
-# Install all dotfiles
-for dotfile in "${dotfiles[@]}"; do
-	echo "Installing $DOTFILES_DIR/$dotfile..."
-	ln -s `pwd`/$DOTFILES_DIR/$dotfile ~/$dotfile 2> /dev/null
-done
-
 # Setting up ViM theme and plugin
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
@@ -42,3 +30,15 @@ if [ ! -f ~/.oh-my-zsh/themes/honukai.zsh-theme ]; then
 	echo "Downloading honukai theme for Oh My Zsh..."
 	curl -LSso ~/.oh-my-zsh/themes/honukai.zsh-theme https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm-zsh/master/honukai.zsh-theme
 fi
+
+# Get current dir (so run this script from anywhere)
+export DOTFILES_DIR
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+dotfiles=(.vimrc .zshrc)
+
+# Install all dotfiles
+for dotfile in "${dotfiles[@]}"; do
+	echo "Installing $DOTFILES_DIR/$dotfile..."
+	ln -s `pwd`/$dotfile ~/$dotfile 2> /dev/null
+done
