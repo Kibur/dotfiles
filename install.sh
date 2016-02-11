@@ -52,5 +52,5 @@ fi
 # Change Shell
 if [ $SHELL != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
-    logout
+    echo "Logout to apply new shell"
 fi
