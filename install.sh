@@ -36,9 +36,22 @@ fi
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo "Installing Oh My Zsh..."
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    exit
 fi
 
 if [ ! -f ~/.oh-my-zsh/themes/honukai.zsh-theme ]; then
 	echo "Downloading honukai theme for Oh My Zsh..."
 	curl -LSso ~/.oh-my-zsh/themes/honukai.zsh-theme https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm-zsh/master/honukai.zsh-theme
+fi
+
+# Get custom config back
+if [ -f ~/.zshrc.pre-oh-my-zsh ]; then
+    rm -v ~/${dotfiles[1]}
+    mv ~/.zshrc.pre-oh-my-zsh ~/${dotfiles[1]}
+fi
+
+# Change Shell
+if [ $SHELL != "$(which zsh)" ]; then
+    chsh -s "$(which zsh)"
+    logout
 fi
