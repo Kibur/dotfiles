@@ -1,11 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-# Install all dotfiles
+# Get current dir (so run this script from anywhere)
+export DOTFILES_DIR
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Update dotfiles itself first
+[ -d "$DOTFILES_DIR/.git"] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
+
 dotfiles=(.vimrc .zshrc)
 
-for dotfile in ${dotfiles[*]}; do
-	printf "Installing %s...\n" $dotfile
-	ln -s `pwd`/$dotfile ~/$dotfile 2> /dev/null
+# Install all dotfiles
+for dotfile in "${dotfiles[@]}"; do
+	echo "Installing $DOTFILES_DIR/$dotfile..."
+	ln -s `pwd`/$DOTFILES_DIR/$dotfile ~/$DOTFILES_DIR/$dotfile 2> /dev/null
 done
 
 # Setting up Oh My Zsh theme
