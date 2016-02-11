@@ -5,7 +5,7 @@ dotfiles=(.vimrc .zshrc)
 
 for dotfile in ${dotfiles[*]}; do
 	printf "Installing %s...\n" $dotfile
-	ln -s `pwd`/dotfiles/$dotfile ~/$dotfile 2> /dev/null
+	ln -s `pwd`/$dotfile ~/$dotfile 2> /dev/null
 done
 
 # Setting up Oh My Zsh theme
