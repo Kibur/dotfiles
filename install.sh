@@ -13,7 +13,7 @@ for dotfile in "${dotfiles[@]}"; do
 done
 
 # Setting up ViM theme and plugin
-mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
 
 if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
 	echo "Installing Pathogen for ViM..."
@@ -30,6 +30,18 @@ if [ ! -d ~/.vim/bundle/syntastic ]; then
     cd ~/.vim/bundle
     echo "Downloading Syntastic for ViM..."
     git clone https://github.com/scrooloose/syntastic
+fi
+
+if [ ! -d ~/.vim/bundle/vim-jinja ]; then
+    cd ~/.vim/bundle
+    echo "Downloading Jinja for ViM..."
+    git clone https://github.com/vlad003/vim-jinja
+fi
+
+if [ ! -d ~/.vim/bundle/vim-jdaddy ]; then
+    cd ~/.vim/bundle
+    echo "Downloading jDaddy for ViM..."
+    git clone https://github.com/tpope/vim-jdaddy
 fi
 
 # Setting up Oh My Zsh theme

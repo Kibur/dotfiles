@@ -103,6 +103,9 @@ nnoremap <silent> <F5> :lnext<CR>
 nnoremap <silent> <F6> :lprev<CR>
 nnoremap <silent> <C-Space> :ll<CR>
 
+" jDaddy JSON pretty print
+nmap <F9> gqaj
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
