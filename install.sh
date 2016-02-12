@@ -58,7 +58,7 @@ fi
 # Get custom config back
 if [ -f ~/.zshrc.pre-oh-my-zsh ]; then
     rm -v ~/${dotfiles[1]}
-    mv ~/.zshrc.pre-oh-my-zsh ~/${dotfiles[1]}
+    mv -v ~/.zshrc.pre-oh-my-zsh ~/${dotfiles[1]}
 fi
 
 # Change Shell
