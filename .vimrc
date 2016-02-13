@@ -46,17 +46,30 @@ if has("autocmd")
 endif
 
 
-" kod-relaterat
+" Code related
 inoremap {<CR> {<CR>}<ESC>:call BC_AddChar("}")<CR>ko
 inoremap { {}<ESC>:call BC_AddChar("}")<CR>i
 inoremap ( ()<ESC>:call BC_AddChar(")")<CR>i
 inoremap [ []<ESC>:call BC_AddChar("]")<CR>i
 imap <C-k> <ESC>:call search(BC_GetChar(), "W")<CR>:noh<CR>A
 
-" bajs-relaterat
+" Careless typing
 iabbrev cant can't
+iabbrev teh the
+iabbrev hes he's
+iabbrev shes she's
+iabbrev thats that's
+iabbrev dont don't
+iabbrev havent haven't
+iabbrev wasnt wasn't
+iabbrev isnt isn't
+iabbrev doesnt doesn't
+iabbrev whats what's
+iabbrev didnt didn't
+iabbrev couldnt couldn't
+iabbrev shouldnt shouldn't
 
-" stulet godis
+" I admit it's not my vimrc
 function! BC_AddChar(schar)
   if exists("b:robstack")
     let b:robstack = b:robstack . a:schar
@@ -75,16 +88,45 @@ set undofile
 set undodir=$HOME/.vimundo
 set undolevels=1000
 set undoreload=10000
-"ska ja sparra +?????????
-"ja Tack
 
-fu! FixSwe()
-    :%s/å/\&aring;/
-    :%s/ä/\&auml;/
-    :%s/ö/\&ouml;/
-    :%s/Å/\&Aring;/
+" French diacritics and ligatures
+fu! FixLatin()
+    :%s/Œ/\&OElig;/
+    :%s/œ/\&oelig;/
+    :%s/Ÿ/\&Yuml;/
+    :%s/À/\&Agrave;/
+    :%s/Â/\&Acirc;/
     :%s/Ä/\&Auml;/
+    :%s/Æ/\&AElig;/
+    :%s/Ç/\&Ccedil;/
+    :%s/È/\&Egrave;/
+    :%s/É/\&Eacute;/
+    :%s/Ê/\&Ecirc;/
+    :%s/Ë/\&Euml;/
+    :%s/Î/\&Icirc;/
+    :%s/Ï/\&Iuml;/
+    :%s/Ô/\&Ocirc;/
     :%s/Ö/\&Ouml;/
+    :%s/Ù/\&Ugrave;/
+    :%s/Û/\&Ucirc;/
+    :%s/Ü/\&Uuml;/
+    :%s/à/\&agrave;/
+    :%s/â/\&acirc;/
+    :%s/ä/\&auml;/
+    :%s/æ/\&aelig;/
+    :%s/ç/\&ccedil;/
+    :%s/è/\&egrave;/
+    :%s/é/\&eacute;/
+    :%s/ê/\&ecirc;/
+    :%s/ë/\&euml;/
+    :%s/î/\&icirc;/
+    :%s/ï/\&iuml;/
+    :%s/ô/\&ocirc;/
+    :%s/ö/\&ouml;/
+    :%s/ù/\&ugrave;/
+    :%s/û/\&ucirc;/
+    :%s/ü/\&uuml;/
+    :%s/ÿ/\&yuml;/
 endfunction
 
 nnoremap ; :
