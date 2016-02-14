@@ -23,7 +23,6 @@ set ai
 set si
 set cin
 set mouse=a
-set cursorline
 set numberwidth=6
 set encoding=utf-8 " necessary to show Unicode glyphs
 
@@ -33,7 +32,7 @@ set laststatus=2 " always show statusline
 " colo sdac
 colo ron
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+hi CursorLine term=bold,underline cterm=bold,underline guibg=Grey40
 " colo bithack
 
 if has("autocmd")
