@@ -153,6 +153,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" GCC compiler C++ version setup for syntax checker
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14 -stdlib=libc++'
+
 set rnu
 
 "set statusline+=%#warningmsg#
