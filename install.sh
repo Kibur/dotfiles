@@ -44,6 +44,12 @@ if [ ! -d ~/.vim/bundle/vim-jdaddy ]; then
     git clone https://github.com/tpope/vim-jdaddy
 fi
 
+if [ ! -d ~/.vim/bundle/html5.vim ]; then
+    cd ~/.vim/bundle
+    echo "Downloading HTML5 for ViM..."
+    git clone https://github.com/othree/html5.vim
+fi
+
 # Setting up Oh My Zsh theme
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo "Installing Oh My Zsh..."
