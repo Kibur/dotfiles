@@ -51,7 +51,7 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%0
 set laststatus=2 " always show statusline
 
 set cursorline " highlight line the cursor is on
-hi CursorLine term=bold cterm=bold guibg=Grey40
+hi CursorLine term=bold,underline cterm=bold,underline guibg=Grey40
 
 " Code related
 inoremap {<CR> {<CR>}<ESC>:call BC_AddChar("}")<CR>ko
