@@ -2,13 +2,13 @@ syntax on
 set noswapfile
 set number " always show line numbers
 set nowrap " don't wrap lines
-set backspace=indent,eol,start
-set incsearch
+set backspace=indent,eol,start " intuitive backspacing
+set incsearch " highlight search matches as you type
 set showmode " always show current mode
-set nocompatible " Disable Vi-compatibility
+set nocompatible " disable Vi-compatibility
 filetype on
-filetype plugin indent on
-set wildmenu
+filetype plugin indent on " enable loading plugins by filetype
+set wildmenu " enhanced command line completion
 set ruler
 set lz
 set hid
@@ -17,7 +17,7 @@ set tabstop=4 " a tab is four spaces
 set shiftwidth=4 " number of spaces to use for autoindenting
 set expandtab " expand tabs by default (overloadable per file type later)
 set autoindent " always set autoidenting on
-set smartindent
+set smartindent " automatically indent after {
 set cindent
 set ai
 set si
@@ -31,7 +31,7 @@ set laststatus=2 " always show statusline
 
 " colo sdac
 colo ron
-set cursorline
+set cursorline " highlight line the cursor is on
 hi CursorLine term=bold,underline cterm=bold,underline guibg=Grey40
 " colo bithack
 
