@@ -1,4 +1,20 @@
-syntax on
+if has('autocmd')
+    filetype plugin indent on " enable loading plugins by filetype
+    augroup c
+        autocmd BufReadPre,FileReadPre      *.c,*.h iabbrev /** /**<CR><BACKSPACE>*/<ESC>ka 
+    augroup END
+    augroup php
+        autocmd BufReadPre,FileReadPre      *.php inoremap $this $this->
+    augroup END
+endif
+if has('syntax') && !exists('g:syntax_on')
+    syntax enable
+endif
+
+set complete-=i
+set nrformats-=octal
+set timeout
+set ttimeoutlen=100
 set noswapfile
 set number " always show line numbers
 set nowrap " don't wrap lines
@@ -6,10 +22,9 @@ set backspace=indent,eol,start " intuitive backspacing
 set incsearch " highlight search matches as you type
 set showmode " always show current mode
 set nocompatible " disable Vi-compatibility
-filetype on
-filetype plugin indent on " enable loading plugins by filetype
 set wildmenu " enhanced command line completion
 set ruler
+set lazyredraw
 set lz
 set hid
 set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if spaces
@@ -24,26 +39,21 @@ set si
 set cin
 set mouse=a
 set numberwidth=6
-set encoding=utf-8 " necessary to show Unicode glyphs
 
+if &encoding ==# 'latin1' && has('gui_running')
+    set encoding=utf-8 " necessary to show Unicode glyphs
+endif
+
+if &listchars ==# 'eol:S'
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
+set autoread
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2 " always show statusline
 
-" colo sdac
-colo ron
 set cursorline " highlight line the cursor is on
 hi CursorLine term=bold,underline cterm=bold,underline guibg=Grey40
-" colo bithack
-
-if has("autocmd")
-    augroup c
-        autocmd BufReadPre,FileReadPre      *.c,*.h iabbrev /** /**<CR><BACKSPACE>*/<ESC>ka 
-    augroup END
-    augroup php
-        autocmd BufReadPre,FileReadPre      *.php inoremap $this $this->
-    augroup END
-endif
-
 
 " Code related
 inoremap {<CR> {<CR>}<ESC>:call BC_AddChar("}")<CR>ko
@@ -131,6 +141,11 @@ endfunction
 nnoremap ; :
 
 execute pathogen#infect()
+
+" Allow color schemes to do bright colors without forcing bold
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+    set t_Co=16
+endif
 
 " Theme
 "set background=dark
