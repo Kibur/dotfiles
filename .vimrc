@@ -13,7 +13,7 @@ endif
 
 set complete-=i
 set nrformats-=octal
-set timeout
+set ttimeout
 set ttimeoutlen=100
 set noswapfile
 set number " always show line numbers
@@ -40,9 +40,7 @@ set cin
 set mouse=a
 set numberwidth=6
 
-if &encoding ==# 'latin1' && has('gui_running')
-    set encoding=utf-8 " necessary to show Unicode glyphs
-endif
+set encoding=utf-8 " necessary to show Unicode glyphs
 
 if &listchars ==# 'eol:S'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
