@@ -50,6 +50,12 @@ if [ ! -d ~/.vim/bundle/html5.vim ]; then
     git clone https://github.com/othree/html5.vim
 fi
 
+if [ ! -d ~/.vim/bundle/vim-javascript ]; then
+    cd ~/.vim/bundle
+    echo "Downloading Javascript for ViM..."
+    git clone https://github.com/pangloss/vim-javascript
+fi
+
 # Setting up Oh My Zsh theme
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo "Installing Oh My Zsh..."
