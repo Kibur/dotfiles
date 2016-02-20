@@ -74,7 +74,7 @@ if [ -f ~/.zshrc.pre-oh-my-zsh ]; then
 fi
 
 # Change Shell
-if [ $SHELL != "$(which zsh)" ]; then
+if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
     echo "Logout to apply new shell"
 fi
