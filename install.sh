@@ -9,7 +9,7 @@ dotfiles=(.vimrc .zshrc)
 # Install all dotfiles
 for dotfile in "${dotfiles[@]}"; do
 	echo "Installing $DOTFILES_DIR/$dotfile..."
-	ln -s `pwd`/$dotfile ~/$dotfile 2> /dev/null
+	ln -s $DOTFILES_DIR/$dotfile ~/$dotfile 2> /dev/null
 done
 
 # Setting up ViM theme and plugin
