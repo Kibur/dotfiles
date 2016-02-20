@@ -20,10 +20,11 @@ set number " always show line numbers
 set nowrap " don't wrap lines
 set backspace=indent,eol,start " intuitive backspacing
 set incsearch " highlight search matches as you type
+set hlsearch " keep highlighting search matches
 set showmode " always show current mode
 set nocompatible " disable Vi-compatibility
 set wildmenu " enhanced command line completion
-set ruler
+set ruler " show the cursor wposition all the time
 set lazyredraw
 set lz
 set hid
@@ -46,7 +47,7 @@ if &listchars ==# 'eol:S'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
-set autoread
+set autoread " auto read when file is changed from outside
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2 " always show statusline
 
@@ -170,6 +171,10 @@ let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_compiler_options = '-std=c++14 -stdlib=libc++'
 
 set rnu
+
+" Enable/Disable Hex Editor Mode
+command Hex :%!xxd
+command Norm :%!xxd -r
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
