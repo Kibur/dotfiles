@@ -38,9 +38,9 @@ set cindent
 set ai
 set si
 set cin
-set mouse=a
+set mouse=a " enable use of the mouse for all modes
 set numberwidth=6
-
+set confirm " dialog asking for saving an edited file instead of failing
 set encoding=utf-8 " necessary to show Unicode glyphs
 
 if &listchars ==# 'eol:S'
