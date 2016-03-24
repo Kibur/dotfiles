@@ -147,8 +147,12 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
 endif
 
 " Theme
-"set background=dark
-"colorscheme solarized
+if has('gui_running')
+    colorscheme elflord
+else
+    "set background=dark
+    "colorscheme solarized
+endif
 
 "let g:syntastic_mode_map = { 'mode': 'passive',     
 "                          \ 'active_filetypes': [],     
