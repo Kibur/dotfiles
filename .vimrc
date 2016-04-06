@@ -87,7 +87,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " Code related
 inoremap {<CR> {<CR>}<ESC>:call BC_AddChar("}")<CR>ko
 inoremap { {}<ESC>:call BC_AddChar("}")<CR>i
-inoremap ( ()<ESC>:call BC_AddChar(")")<CR>i
+"inoremap ( ()<ESC>:call BC_AddChar(")")<CR>i
 inoremap [ []<ESC>:call BC_AddChar("]")<CR>i
 imap <C-k> <ESC>:call search(BC_GetChar(), "W")<CR>:noh<CR>A
 
@@ -192,8 +192,32 @@ nnoremap <silent> <F5> :lnext<CR>
 nnoremap <silent> <F6> :lprev<CR>
 nnoremap <silent> <C-Space> :ll<CR>
 
+" alt -> and <- to cycle window panes
+nnoremap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <A-Left> :wincmd h<CR>
+nnoremap <silent> <A-Up> :wincmd k<CR>
+nnoremap <silent> <A-Down> :wincmd j<CR>
+inoremap <silent> <A-Right> <ESC>:wincmd l<CR>
+inoremap <silent> <A-Left> <ESC>:wincmd h<CR>
+inoremap <silent> <A-Up> <ESC>:wincmd k<CR>
+inoremap <silent> <A-Down> <ESC>:wincmd j<CR>
+
+" ctrl + alt -> and <- move the window panes
+nnoremap <silent> <C-A-Right> :wincmd L<CR>
+nnoremap <silent> <C-A-Left> :wincmd H<CR>
+nnoremap <silent> <C-A-Up> :wincmd K<CR>
+nnoremap <silent> <C-A-Down> :wincmd J<CR>
+inoremap <silent> <C-A-Right> <ESC>:wincmd L<CR>
+inoremap <silent> <C-A-Left> <ESC>:wincmd H<CR>
+inoremap <silent> <C-A-Up> <ESC>:wincmd K<CR>
+inoremap <silent> <C-A-Down> <ESC>:wincmd J<CR>
+
 " jDaddy JSON pretty print
 nmap <F9> gqaj
+
+" Propesr selection with shift + arrow
+nmap <S-Up> v
+nmap <S-Down> v
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -212,6 +236,9 @@ command Norm :%!xxd -r
 
 " Encrypt file with GPG
 command Crypto execute ':!gpg -ao ' . expand("%:r") . '.gpg -c ' . expand("%:p")
+
+" Extra C++ shit
+syn keyword cppType local_persist internal_var internal_function global_var constant_var r32 r64 ubyte uint ulong i8 u8 i32 u32 i64 u64 i16 u16 b32
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
