@@ -215,7 +215,7 @@ inoremap <silent> <C-A-Down> <ESC>:wincmd J<CR>
 " jDaddy JSON pretty print
 nmap <F9> gqaj
 
-" Propesr selection with shift + arrow
+" Proper selection with shift + arrow
 nmap <S-Up> v
 nmap <S-Down> v
 
