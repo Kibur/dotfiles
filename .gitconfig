@@ -1,0 +1,12 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%C(auto)%d %C(reset)[%an]' --graph --date=short --color
+	type = cat-file -t
+	dump = cat-file -p
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	staged = diff --staged
+	uci = reset HEAD^
