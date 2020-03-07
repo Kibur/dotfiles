@@ -10,3 +10,5 @@
 	last = log -1 HEAD
 	staged = diff --staged
 	uci = reset HEAD^
+	up = pull --rebase
+	upd = fetch && pull --prune
