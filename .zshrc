@@ -18,6 +18,11 @@ fi
 # kitty
 export PATH=$PATH:~/.local/kitty.app/bin
 
+# Additional (kitty) IMPORTANT might conflict with tmux!
+# Will automatically copy the terminfo files to the server.
+# This ssh kitten take all the same command line arguments as ssh.
+#alias ssh="kitty +kitten ssh"
+
 # Binds fixing control key + arrows
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
