@@ -10,6 +10,10 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Zsh autosuggestions
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
 # Alias definition.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
