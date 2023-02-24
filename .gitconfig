@@ -6,7 +6,7 @@
 	hist = log --pretty=format:'%h %ad | %s%C(auto)%d %C(reset)[%an]' --graph --date=short --color
 	type = cat-file -t
 	dump = cat-file -p
-	unstage = reset HEAD --
+	unstage = restore --staged
 	last = log -1 HEAD
 	staged = diff --staged
 	uci = reset HEAD^
